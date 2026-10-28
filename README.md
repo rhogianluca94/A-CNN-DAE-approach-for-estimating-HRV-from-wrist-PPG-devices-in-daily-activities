@@ -4,6 +4,8 @@ This repository contains the code associated with the paper:
 
 > Rho, G., Carbonaro, N., Laurino, M., Tognetti, A., & Greco, A. (2026). A deep learning approach for estimating time-domain heart rate variability parameters from wrist photoplethysmography during daily activity. *Biomedical Signal Processing and Control, 123*, 110531. https://doi.org/10.1016/j.bspc.2026.110531
 
+Please, send me an email at gianluca.rho@ing.unipi.it to request a copy of the manuscript.
+
 The code denoises wrist photoplethysmography (PPG) signals corrupted by motion artifacts using an ensemble of convolutional denoising autoencoders (CNN-DAEs), and then estimates time-domain pulse rate variability (PRV) parameters (mean heart rate, stdRR, RMSSD) with a dedicated tracking algorithm.
 
 ## Overview
