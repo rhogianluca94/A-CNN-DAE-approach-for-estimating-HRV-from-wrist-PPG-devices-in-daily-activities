@@ -48,7 +48,8 @@ No manual resampling is needed. Note that the pretrained models were trained on 
 | `trackingAlgorithm.py` | Class `PRVtracking`: PRV parameter tracking algorithm (error detection, correction and control). |
 | `CNN_IEEESPCData.py` | Definition of the `DAE_CNN` network architecture (PyTorch). |
 | `models/` | Pretrained weights of the 10 ensemble models (`model__LOO1_bestModel_M1.h5` ... `_M10.h5`). |
-| `proposed/sampleData.csv` | Sample PPG recording (column `ppgData`) used by the example script. |
+| `sampleData.csv` | Sample PPG recording (column `ppgData`) used by the example script. |
+| `requirements.txt` | List of necessary libraries. |
 
 ## Requirements
 
@@ -59,6 +60,10 @@ No manual resampling is needed. Note that the pretrained models were trained on 
 - matplotlib
 - scikit-learn
 - PyTorch
+
+```bash
+pip install -r requirements.txt
+```
 
 ### Quick start
 
