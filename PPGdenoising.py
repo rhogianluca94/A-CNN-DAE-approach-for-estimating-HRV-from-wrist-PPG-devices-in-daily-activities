@@ -22,7 +22,7 @@ class PPGdenoising:
         # base folder (cross-platform)
         scriptPath = Path(__file__).resolve().parent
         # models directory and common filename prefix of the weights
-        self.modelsDir = scriptPath / 'models' / 'models'
+        self.modelsDir = scriptPath / 'models'
         self.modelPrefix = 'model__LOO1_bestModel'
         self.modelsDir_DALIA = self.modelsDir / self.modelPrefix
 
