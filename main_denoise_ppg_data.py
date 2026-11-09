@@ -1,7 +1,6 @@
 import pandas as pd
 from pathlib import Path
 import matplotlib.pyplot as plt
-import pandas as pd
 from PPGdenoising import PPGdenoising
 
 
@@ -10,7 +9,7 @@ from PPGdenoising import PPGdenoising
 if __name__ == '__main__':
 
     # load sample data
-    PPG_PATH = Path(Path.cwd() / 'proposed' / 'sampleData.csv')
+    PPG_PATH = Path(Path.cwd() / 'sampleData.csv')
     csvData_ppg = pd.read_csv(PPG_PATH, sep=',', low_memory=False)
     
     # Prepare sample data
@@ -46,7 +45,7 @@ if __name__ == '__main__':
 
     axs[2].plot(rmssd, color='purple')
     axs[2].set_title('RMSSD')
-    axs[2].set_xlabel('samples (8sec-averages)') 
+    axs[2].set_xlabel('samples (10 sec-averages)') 
     axs[2].grid(True)
 
     plt.tight_layout()

@@ -13,7 +13,7 @@ class PRVtracking:
         self.bRMSSD = bRMSSD
         self.theta = theta
 
-
+    # not used
     def segmentRR(self, y, srate):
         rrOut = []
         M = len(y)
@@ -66,7 +66,7 @@ class PRVtracking:
         # Predict the value for xpred
         hpred = model.predict(xpred)
 
-        return hpred[0]
+        return hpred.item()
 
 
     def estimateMeasure(self, rr, measureType, operator):
@@ -193,4 +193,3 @@ class PRVtracking:
             plt.show()
            
         return hrTracked, stdRRTracked, rmssdTracked
-

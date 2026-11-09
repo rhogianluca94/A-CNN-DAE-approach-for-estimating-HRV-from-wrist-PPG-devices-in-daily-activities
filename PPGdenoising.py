@@ -19,10 +19,12 @@ class PPGdenoising:
         self.srateRR = 4
         self.sequence_length = 8 * int(self.srate)
 
-        # base folder
-        scriptPath = os.path.dirname(__file__)
-        # models directory
-        self.modelsDir_DALIA = os.path.join(scriptPath, 'models') + ('\\model__LOO' + '1' + '_bestModel')
+        # base folder (cross-platform)
+        scriptPath = Path(__file__).resolve().parent
+        # models directory and common filename prefix of the weights
+        self.modelsDir = scriptPath / 'models' / 'models'
+        self.modelPrefix = 'model__LOO1_bestModel'
+        self.modelsDir_DALIA = self.modelsDir / self.modelPrefix
 
     @staticmethod
     def get_windows(data, Mt, olap):
@@ -148,7 +150,7 @@ class PPGdenoising:
             x_val = x_val.unsqueeze(1).float()
 
             # Load the saved model weights
-            modelFilename = Path(str(self.modelsDir_DALIA) +  f'_M{modelIndex+1}.h5')
+            modelFilename = self.modelsDir / f'{self.modelPrefix}_M{modelIndex+1}.h5'
             model.load_state_dict(torch.load(modelFilename, map_location='cpu', weights_only=True))
             model.eval()  # Set the model to evaluation mode
 
@@ -271,16 +273,4 @@ class PPGdenoising:
     def reshape_outputData_model(x_out):
         # unroll the windowed data
         nWindows, nSamples = np.shape(x_out)
-        return np.reshape(x_out, newshape=(nWindows*nSamples, ))
-
-
-
-
-
-
-
-
-
-
-    
-                    
+        return np.reshape(x_out, shape=(nWindows*nSamples, ))
